@@ -1,6 +1,8 @@
 <?php
-if ( defined( 'WP_CLI' ) && WP_CLI ) {
+namespace Itmar_AddLazyPotFile;
 
+if ( defined( 'WP_CLI' ) && WP_CLI ) {
+  
     /**
      * .pot ファイルの内容にlazyロードの呼び出し元ファイルのパスを追加するカスタム WP-CLI コマンド
      */
