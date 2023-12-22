@@ -124,5 +124,5 @@ if ( defined( 'WP_CLI' ) && WP_CLI ) {
         }
       }
     }
-    WP_CLI::add_command( 'add_source_path', 'itmar_add_lazy_pot_file' );
+    WP_CLI::add_command( 'add_source_path', 'Itmar_AddLazyPotFile\itmar_add_lazy_pot_file' );
 }
