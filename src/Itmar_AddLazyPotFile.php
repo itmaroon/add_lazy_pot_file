@@ -6,7 +6,7 @@ if ( defined( 'WP_CLI' ) && WP_CLI ) {
     /**
      * .pot ファイルの内容にlazyロードの呼び出し元ファイルのパスを追加するカスタム WP-CLI コマンド
      */
-    class itmar_add_lazy_pot_file extends WP_CLI_Command {
+    class Itmar_AddLazyPotFile extends WP_CLI_Command {
        
       public function __invoke( $args, $assoc_args ) {
         // 引数からText Domainを取得
@@ -123,6 +123,5 @@ if ( defined( 'WP_CLI' ) && WP_CLI ) {
           }
         }
       }
-    }
-    WP_CLI::add_command( 'add_source_path', 'Itmar_AddLazyPotFile\itmar_add_lazy_pot_file' );
+    }    
 }
