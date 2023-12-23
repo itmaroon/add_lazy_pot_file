@@ -1,11 +1,18 @@
 {
     "name": "itmaroon/add_lazy_pot_file",
     "description": "This is a command to add information corresponding to lazy loading to the POT file for functioning the translation function provided by WordPress.",
-    "type": "wordpress-plugin",
+    "type": "library",
     "license": "MIT",
     "autoload": {
         "psr-4": {
             "Itmar_AddLazyPotFile\\": "src/"
+        }
+    },
+    "extra": {
+        "wp-cli": {
+            "commands": [
+                "Itmar_AddLazyPotFile\\Itmar_AddLazyPotFile"
+            ]
         }
     },
     "authors": [
