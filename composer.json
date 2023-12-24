@@ -5,22 +5,31 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Itmar_AddLazyPotFile\\": "src/"
-        }
+            "Itmar_NameSpace\\": "src/"
+        },
+        "files": [
+            "command-registration-file.php"
+        ]
     },
     "extra": {
         "wp-cli": {
             "commands": [
-                "Itmar_AddLazyPotFile\\Itmar_AddLazyPotFile"
+                "Itmar_NameSpace\\Itmar_AddLazyPotFile"
             ]
         }
     },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/itmaroon/add_lazy_pot_file"
+        }
+    ],
     "authors": [
         {
             "name": "Web Creator ITmaroon"
         }
     ],
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "require": {
         "wp-cli/wp-cli": "^2.8.1"
     }
