@@ -31,6 +31,7 @@
     ],
     "minimum-stability": "dev",
     "require": {
-        "wp-cli/wp-cli": "^2.8.1"
+        "wp-cli/wp-cli": "^2.8.1",
+        "itmaroon/add_lazy_pot_file": "dev-master"
     }
 }
