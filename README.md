@@ -5,7 +5,7 @@ Provides a function that adds the path information of the calling file of lazy l
 
 
 
-Quick links: [Using](#using) | [Installing](#installing) | [Support](#support)
+Quick links: [Using](#using) | [Installing](#installing) | [Notes](#notes) | [Support](#support)
 
 ## When to use
 When using a module that is not always used, delaying loading it until it is time to use it is called lazy loading, and React provides a function called `React.lazy`.
