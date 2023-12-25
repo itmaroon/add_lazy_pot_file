@@ -18,12 +18,6 @@
             ]
         }
     },
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://github.com/itmaroon/add_lazy_pot_file"
-        }
-    ],
     "authors": [
         {
             "name": "Web Creator ITmaroon"
@@ -31,7 +25,6 @@
     ],
     "minimum-stability": "dev",
     "require": {
-        "wp-cli/wp-cli": "^2.8.1",
-        "itmaroon/add_lazy_pot_file": "dev-master"
+        "wp-cli/wp-cli": "^2.8.1"
     }
 }
