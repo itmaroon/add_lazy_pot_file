@@ -39,7 +39,7 @@ if ( defined( 'WP_CLI' ) && WP_CLI ) {
           $content = file_get_contents($file->getRealPath());
 
           // 正規表現で検索
-          $pattern = '/React\.lazy\(\(\(\*?\)=>(?:Promise\.all\(\[(.*?)\]\)|r\.e\((\d+)\))/';
+          $pattern = '/React\.lazy\(\(\(\*?\)=>(?:Promise\.all\(\[(.*?)\]\)|[a-z]\.e\((\d+)\))/';
           
           if (preg_match($pattern, $content, $matches)) {
             // ディレクトリセパレータを正規化
@@ -58,7 +58,7 @@ if ( defined( 'WP_CLI' ) && WP_CLI ) {
             } else if (!empty($matches[1])) { // Promise.allのケース
               $items = explode(',', $matches[1]);
               foreach ($items as $item) {
-                if (preg_match('/r\.e\((\d+)\)/', $item, $itemMatches)) {
+                if (preg_match('/[a-z]\.e\((\d+)\)/', $item, $itemMatches)) {
                   $results[] = [
                     'cash' => trim($itemMatches[1]) . '.js',
                     'source' => $relative_path
