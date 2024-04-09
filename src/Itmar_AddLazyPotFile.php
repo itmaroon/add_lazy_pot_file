@@ -39,6 +39,12 @@ if ( defined( 'WP_CLI' ) && WP_CLI ) {
           $content = file_get_contents($file->getRealPath());
           $pattern = '/React\.lazy\(\(\(\*?\)=>(?:Promise\.all\(\[(.*?)\]\)|[a-z]\.e\((\d+)\))/';
 
+<<<<<<< HEAD
+=======
+          // 正規表現で検索
+          $pattern = '/React\.lazy\(\(\(\*?\)=>(?:Promise\.all\(\[(.*?)\]\)|[a-z]\.e\((\d+)\))/';
+          
+>>>>>>> d018980920fdc583c2dd99f6ddf349436594e869
           if (preg_match($pattern, $content, $matches)) {
             // ディレクトリセパレータを正規化
             $normalizedCurrentDir = str_replace('\\', '/', $plugin_root_directory);
@@ -53,7 +59,10 @@ if ( defined( 'WP_CLI' ) && WP_CLI ) {
                 'cash' => trim($matches[2]) . '.js',
                 'source' => $relative_path
               ];
+<<<<<<< HEAD
               
+=======
+>>>>>>> d018980920fdc583c2dd99f6ddf349436594e869
             } else if (!empty($matches[1])) { // Promise.allのケース
               $items = explode(',', $matches[1]);
               foreach ($items as $item) {
