@@ -41,7 +41,6 @@ if (defined('WP_CLI') && WP_CLI) {
 
           // index.js ファイルの内容を読み込む
           $content = file_get_contents($file->getRealPath());
-          // 正規表現で検索
           $pattern = '/React\.lazy\(\(\(\*?\)=>(?:Promise\.all\(\[(.*?)\]\)|[a-z]\.e\((\d+)\))/';
 
           if (preg_match($pattern, $content, $matches)) {

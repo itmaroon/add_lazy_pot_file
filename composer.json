@@ -1,5 +1,5 @@
 {
-    "name": "itmaroon/add_lazy_pot_file",
+    "name": "itmar/add_lazy_pot_file",
     "description": "This is a command to add information corresponding to lazy loading to the POT file for functioning the translation function provided by WordPress.",
     "type": "library",
     "license": "MIT",
