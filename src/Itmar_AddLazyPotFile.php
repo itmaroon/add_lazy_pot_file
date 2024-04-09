@@ -37,9 +37,8 @@ if ( defined( 'WP_CLI' ) && WP_CLI ) {
           
           // index.js ファイルの内容を読み込む
           $content = file_get_contents($file->getRealPath());
+          $pattern = '/React\.lazy\(\(\(\*?\)=>(?:Promise\.all\(\[(.*?)\]\)|[a-z]\.e\((\d+)\))/';
 
-          // 正規表現で検索
-          $pattern = '/React\.lazy\(\(\(\*?\)=>Promise\.all\(\[(.*?)\]\)/';
           if (preg_match($pattern, $content, $matches)) {
             // ディレクトリセパレータを正規化
             $normalizedCurrentDir = str_replace('\\', '/', $plugin_root_directory);
@@ -47,17 +46,23 @@ if ( defined( 'WP_CLI' ) && WP_CLI ) {
            
             // 相対パスを計算
             $relative_path = str_replace($normalizedCurrentDir . '/', '', $normalizedFilePath);
-            // カンマで分割して配列に変換
-            $items = explode(',', $matches[1]);
-            // 各要素の ( と ) 内の文字列を抽出
-            foreach ($items as $item) {
-              if (preg_match('/\((.*?)\)/', $item, $itemMatches)) {
-                
-                $result = [
-                  'cash' => trim($itemMatches[1]).'.js',
-                  'source' => $relative_path
-                ];
-                $results[] = $result;
+
+            // Promise.allのケースとr.eの直接のケースを区別
+            if (!empty($matches[2])) { // r.e(数字)のパターンの場合
+              $results[] = [
+                'cash' => trim($matches[2]) . '.js',
+                'source' => $relative_path
+              ];
+              
+            } else if (!empty($matches[1])) { // Promise.allのケース
+              $items = explode(',', $matches[1]);
+              foreach ($items as $item) {
+                if (preg_match('/[a-z]\.e\((\d+)\)/', $item, $itemMatches)) {
+                  $results[] = [
+                    'cash' => trim($itemMatches[1]) . '.js',
+                    'source' => $relative_path
+                  ];
+                }
               }
             }
           }
