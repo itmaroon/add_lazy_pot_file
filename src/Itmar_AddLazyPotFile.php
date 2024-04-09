@@ -12,9 +12,11 @@ if (defined('WP_CLI') && WP_CLI) {
 
       //Text Domainからプラグインのルートフォルダを検出する
       $all_plugins = get_plugins(); //すべてのプラグイン情報
+      //フラグ等の初期化
       $found = false;
-      foreach ($all_plugins as $plugin_path => $plugin_data) {
+      $plugin_root_directory = '';
 
+      foreach ($all_plugins as $plugin_path => $plugin_data) {
         if (isset($plugin_data['TextDomain']) && $plugin_data['TextDomain'] === $text_domain) {
           // プラグインのルートフォルダを見つけた
           $plugin_root_directory = WP_PLUGIN_DIR . '/' . dirname($plugin_path);
