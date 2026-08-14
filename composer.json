@@ -1,8 +1,18 @@
 {
     "name": "itmar/add_lazy_pot_file",
-    "description": "This is a command to add information corresponding to lazy loading to the POT file for functioning the translation function provided by WordPress.",
-    "type": "library",
+    "description": "Adds lazy-loaded JavaScript entry paths to a WordPress POT file.",
+    "type": "wp-cli-package",
     "license": "MIT",
+    "homepage": "https://github.com/itmaroon/add_lazy_pot_file",
+    "authors": [
+        {
+            "name": "Web Creator ITmaroon",
+            "email": "master@itmaroon.net"
+        }
+    ],
+    "require": {
+        "php": ">=7.4"
+    },
     "autoload": {
         "psr-4": {
             "Itmar_NameSpace\\": "src/"
@@ -11,20 +21,8 @@
             "command-registration-file.php"
         ]
     },
-    "extra": {
-        "wp-cli": {
-            "commands": [
-                "Itmar_NameSpace\\Itmar_AddLazyPotFile"
-            ]
-        }
-    },
-    "authors": [
-        {
-            "name": "Web Creator ITmaroon"
-        }
-    ],
-    "minimum-stability": "dev",
-    "require": {
-        "wp-cli/wp-cli": "^2.8.1"
+    "support": {
+        "issues": "https://github.com/itmaroon/add_lazy_pot_file/issues",
+        "source": "https://github.com/itmaroon/add_lazy_pot_file"
     }
 }

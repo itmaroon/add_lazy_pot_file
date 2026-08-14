@@ -1,2 +1,2 @@
 require:
-  - vendor/autoload.php
+  - command-registration-file.php
