@@ -32,7 +32,9 @@ class Itmar_AddLazyPotFile
     }
 
     // buildディレクトリ内のindex.jsからReact.lazyで遅延読込しようとしているファイル名を検出
-    $build_directory = $plugin_root_directory . '\build';
+    $build_directory = $plugin_root_directory
+      . DIRECTORY_SEPARATOR
+      . 'build';
     $build_directory_iterator = new \RecursiveDirectoryIterator($build_directory);
     $build_iterator = new \RecursiveIteratorIterator($build_directory_iterator);
 
